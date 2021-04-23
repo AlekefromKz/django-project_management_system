@@ -1,0 +1,27 @@
+# Idea
+.idea
+
+# Byte-compiled / optimized / DLL files
+*.log
+*.pot
+*.pyc
+__pycache__
+media
+
+# env file
+.env
+
+# database
+data
+
+# images for Student, Employee and Logs modules
+src/schools/images/student/*
+src/schools/images/employee/*
+src/schools/images/callbacks/enter/*
+src/schools/images/callbacks/exit/*
+
+# Test / Coverage
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
