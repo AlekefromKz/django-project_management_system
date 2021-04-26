@@ -14,11 +14,8 @@ media
 # database
 data
 
-# images for Student, Employee and Logs modules
-src/schools/images/student/*
-src/schools/images/employee/*
-src/schools/images/callbacks/enter/*
-src/schools/images/callbacks/exit/*
+src/core/static/
+src/core/__pycache__
 
 # Test / Coverage
 .coverage
