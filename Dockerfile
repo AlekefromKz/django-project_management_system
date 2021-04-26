@@ -1,7 +1,7 @@
 FROM python:3-buster
 WORKDIR /code
 
-# set env
+# set env - PYTHONUNBUFFERED prevents Python from buffering stdout and stderr (equivalent to python -u option)
 ENV PYTHONUNBUFFERED=1
 
 # install dependencies
