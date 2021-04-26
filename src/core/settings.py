@@ -10,11 +10,19 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
-import os.path
-import sys
+import environ
 
-PROJECT_ROOT = '/srv/django-project_management_system/src/'
+env = environ.Env(
+    DEBUG=(bool, True),
+)
+
+environ.Env.read_env(env_file='../.env')
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+SECRET_KEY = env('SECRET_KEY')
+DEBUG = env('DEBUG')
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,12 +31,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-p@ucqrsx%62pkkgw&o(!$*w#1v)s&z=lnidj5=h%=ex9vaaw-('
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -45,8 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_extensions',
-    'projects',
     'jazzmin',
+    'projects',
 ]
 
 MIDDLEWARE = [
@@ -87,8 +89,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'USER': env('USER'),
+        'PASSWORD': env('PASSWORD'),
         'HOST': 'db',
         'PORT': 5432,
     }
@@ -137,5 +139,3 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
-STATIC_URL = '/static/'

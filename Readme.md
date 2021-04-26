@@ -1,1 +1,1 @@
-Start project in detached mode: `docker-compose up -d --build`
+Run project: `docker-compose up`
