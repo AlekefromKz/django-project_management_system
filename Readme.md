@@ -16,7 +16,7 @@ In the project main Docker image configuration settings are located inside ``Doc
 
 The relational database Postgres has been used for this project. To configure Postgres a service called `db` has been added to the docker-compose.yml file as follows:
 
-``
+```
 db:
     image: postgres
     volumes:
@@ -25,7 +25,7 @@ db:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-``
+```
 
 To persist the data beyond the life of the container a volume has also been configured. This config will bind ``./data/db`` to the ``/var/lib/postgresql/data/`` directory in the container.
 
